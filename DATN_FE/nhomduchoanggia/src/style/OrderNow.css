@@ -1,0 +1,180 @@
+.order-now-container {
+    width: 75%;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.receiving-information {
+    width: 35%;
+}
+
+.receiving-information h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-receiving-infor {
+    width: 80%;
+}
+
+.receiving-information input {
+    margin-bottom: 15px;
+    margin-top: 5px;
+    padding: 8px;
+}
+.province-address {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.transport {
+    width: 25%;
+}
+
+.information-line {
+    width: 45%;
+}
+
+.transport-method {
+    margin-right: 20px;
+}
+
+.transport-method h2 {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.transport-method label {
+    padding: 15px 0px 15px 0px;
+    display: block;
+    width: 100%;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.checkbox-transport {
+    margin-right: 10px;
+}
+
+.payment-method label {
+    padding: 15px 0px;
+    display: block;
+    width: 100%;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.payment-method {
+    margin-right: 20px;
+}
+
+.payment-method label input {
+    margin-right: 10px;
+}
+
+.payment-method h2 {
+    margin-top: 45px;
+    margin-bottom: 15px;
+}
+
+.information-line {
+    padding-left: 50px;
+    border-left: 1px solid black ;
+}
+
+.information-line h2 {
+    margin-bottom: 20px;
+}
+
+.infor-order {
+    width: 100%;
+    display:  flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.infor-order p {
+    font-size: 20px;
+}
+.text-name-product{ 
+    font-size: 20px;
+    margin-right: 100px;
+}
+
+.infor-order img {
+    width: 60px;
+    height: 50px;
+}
+
+.infor-order {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.total {
+    margin-bottom: 20px;
+}
+
+.total input {
+    margin-top: 5px;
+    padding: 8px;
+}
+
+.voucher {
+    margin-bottom: 20px;
+}
+
+.voucher input {
+    margin-top: 5px;
+    padding: 8px;
+}
+
+.provisional {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.fee-ship {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+
+.summary{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+.button-order-now {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+
+.infor-order-sub {
+    height: 180px;
+    position: relative;
+}
+
+.button-order-now {
+    background-color: rgb(111, 213, 253);
+    border: none;
+    width: 100px;
+    height: 40px;
+}
+
+.form-receiving-infor {
+    font-size: 16px;
+}

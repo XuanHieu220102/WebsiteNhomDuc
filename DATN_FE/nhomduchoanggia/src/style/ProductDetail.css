@@ -1,0 +1,149 @@
+.image-title-product-detail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-detail-header {
+    height: 300px;
+}
+.product-detail-container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.redirect-from-pt-to-home {
+    height: auto;
+    padding: 15px 0px;
+    background-color: #fce78a;
+}
+
+.product-detail-content-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 0px 20px 0px;
+}
+
+.product-detail-content-left {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.product-detail-content-left img {
+    width: 90%;
+    height: 380px;
+}
+
+.product-detail-content-right {
+    width: 55%;
+}
+
+.product-detail-content-right h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-detail-content-right ul {
+    list-style:none;
+    padding-left: 10px;
+}
+
+.product-detail-content-right p {
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+
+.product-detail-content-right ul li {
+    padding-bottom: 8px;
+    font-size: 18px;
+}
+
+.related-product {
+    width: 100%;
+    height: 450px;
+}
+
+.slider-item {
+    padding: 0 10px;
+    padding-bottom: 10px;
+}
+
+.btn-order-in-product-detail {
+    margin-top: 50px;
+    background-color: rgb(135, 121, 255);
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn-contact-in-product-detail {
+    margin-left: 30px;
+    background-color: red;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.btn-add-to-love-list {
+    margin-left: 30px;
+    background-color: palevioletred;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.title-product-related {
+    margin: 20px 0px 20px 10px;
+    color:brown;
+}
+
+.rating-title-text {
+    color: red;
+    margin-bottom: 5px !important;
+}
+.star-in-product-detail {
+    font-size: 24px;   
+}
+
+.product-review {
+    width: 100%;
+    height: 350px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow:1px 1px 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+.rating-container {
+    margin: 10px 0px 15px 0px;
+    
+}
+.rating-container p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.comment-title {
+    margin-top: 10px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: red;
+}
+
+.product-review input {
+    padding: 10px;
+    margin-bottom: 30px;
+}

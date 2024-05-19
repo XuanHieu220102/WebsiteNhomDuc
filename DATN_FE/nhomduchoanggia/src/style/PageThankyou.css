@@ -1,0 +1,89 @@
+.page-thank-you-container {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.thankyou-message-container {
+    display: flex;
+    align-items: center;
+}
+
+.thankyou-message-container-left {
+    margin-right: 20px;
+}
+
+.icon-checked {
+    font-size: 42px;
+}
+
+.page-thank-you-container-left {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.infor-content {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.purchase-information {
+    margin-bottom: 25px;
+}
+
+.purchase-information h3 {
+    font-size: 22px;
+}
+
+.purchase-information p {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.method-payment-in-thank-you h3{
+    font-size: 22px;
+}
+
+.method-payment-in-thank-you p {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.delivery-address h3{
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.delivery-address {
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.method-transport-in-thank-you h3 {
+    font-size: 22px;
+}
+
+.method-transport-in-thank-you p {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.btn-continue-buy {
+    margin-top: 30px;
+    margin-bottom: 150px;
+    background-color: aqua;
+    border: none;
+    width: auto;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

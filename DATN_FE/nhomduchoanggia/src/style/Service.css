@@ -1,0 +1,154 @@
+.image-service {
+    width: 100%;
+    height: 250px;
+}
+
+.image-service img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ 
+.design-service {
+    display: flex;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.design-service-left {
+    width: 45%;
+    margin-top: 10px;
+    text-align: justify;
+    color: #034671;
+}
+
+.design-service-title{
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    border-bottom: 1px solid black ;
+}
+
+.production-service-title {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    border-bottom: 1px solid black ;
+}
+
+.design-service-title-content {
+    font-size: 28px;
+    color: #034671;
+    padding:30px 0px 5px 0px;
+}
+
+.production-service-title-content {
+    font-size: 28px;
+    color: #034671;
+    padding:30px 0px 5px 0px;
+}
+
+.design-service-text-1 {
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.design-service-text-2 {
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.design-service-left ul {
+    font-size: 19px;
+    margin-left: 30px;
+}
+
+
+.design-service-right {
+    width: 45%;
+    padding: 10px;
+}
+.design-service-right img {
+    width: 100%;
+}
+
+.production-service {
+    display: flex;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.production-service-left {
+    width: 45%;
+}
+
+.production-service-left img {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.production-service-right {
+    width: 45%;
+    padding-top: 10px;
+    color: #034671;
+}
+
+.production-service-right ul {
+    margin-left: 30px;
+    font-size: 18px;
+}
+
+.call-for-service {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.call-for-service h2 {
+    text-align: center;
+    color: #034671;
+    margin: 20px 0 10px 0;
+}
+
+.call-for-service p {
+    color: #034671;
+    text-align: center;
+    font-size: 18px;
+}
+
+.form-call-for-service {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-call-for-service input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #034671;
+}
+
+.btn-call-for-service {
+    margin-top: 20px;
+    background-color: #034671;
+    color: #fff;
+    width: 100px;
+}
+
+.btn-call-for-service:hover{
+    background-color: #1874ad !important;
+    color: #fff !important;
+}

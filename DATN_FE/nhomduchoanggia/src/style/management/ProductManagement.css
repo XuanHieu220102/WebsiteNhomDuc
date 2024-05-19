@@ -1,0 +1,29 @@
+.product-management-container {
+    padding: 20px;
+}
+
+.product-management-title {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.filter-search {
+    display: flex;
+    width: 25%;
+}
+
+.product-management-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.product-management-search {
+    margin-right: 15px;
+}
+
+.btn-add-product {
+    margin-bottom: 10px;
+}

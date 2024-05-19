@@ -1,0 +1,19 @@
+.management-account-conntainer {
+    padding: 20px;
+}
+
+
+.management-account-header {
+    width: 100%;
+    text-align: center;
+}
+
+.management-account-title {
+    margin: 20px;
+    font-size: 22px;
+}
+
+
+.management-account-content {
+    height: 550px;
+}

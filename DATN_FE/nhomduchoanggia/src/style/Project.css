@@ -1,0 +1,44 @@
+.redirect-in-projects {
+    width: 100%;
+    background-color: #e9d988;
+    height: auto;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+}
+
+.redirect-in-projects-sub {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;  
+}
+
+.project-container {
+    width: 65%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.project-content {
+    height: 340px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image-project {
+    width: 90%;
+    height: 260px;
+    transition: 0.5s;
+}
+.project-content:hover .image-project {
+    transform: scale(1.05);
+    margin-bottom: 5px;
+}
+
+.project-name {
+    width: 90%;
+    font-weight: 700;
+    font-size: 18px;
+}

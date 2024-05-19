@@ -1,0 +1,125 @@
+.image-introduce {
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.image-balcony {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.introduce-myself {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    color: #1D587E;
+    text-align: justify;
+}
+
+.introduce-myself-left {
+    width: 40%;
+}
+
+.who-are-you {
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.i-am {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.ctcpdt {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.des-company {
+    font-size: 18px;
+}
+
+.introduce-myself-right {
+    width: 50%;
+}
+
+.image-introduce-myself {
+    height: 500px;
+    width: 100%;
+}
+
+.vmt {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    text-align: justify;
+    margin-bottom: 50px;
+}
+
+.vmt-content {
+    background-color: #034671;
+    padding: 20px;
+    color: #f1f1f1;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.vmt-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.vmt-content p {
+    font-size: 18px;
+}
+
+.why-choose-me {
+    width: 100%;
+    height: auto;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.why-choose-me h2 {
+    color: #034671;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.why-choose-me p {
+    width: 55%;
+    font-size: 18px;
+    color: #034671;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-decorative {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.strengths {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #034671;
+    font-size: 18px;
+}
+
+.strengths img {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}

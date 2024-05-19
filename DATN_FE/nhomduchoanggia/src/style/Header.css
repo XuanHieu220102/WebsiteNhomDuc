@@ -1,0 +1,219 @@
+.header-container {
+    height: 80px;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);    
+    /* position: fixed;
+    transition: top 0.3s;
+
+    z-index: 999; */
+}
+
+.list-menu {
+    display: flex;
+    list-style: none;
+    margin: 0px;
+}
+
+.list-menu li {
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    padding-bottom: 2px;
+}
+
+.list-menu li:active {
+    color: rgb(255, 141, 11);
+}
+
+.list-menu li:hover {
+    color: rgb(255, 141, 11);
+}
+
+
+.header-nav-right {
+    width: 28%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-in-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.phone-number-1 {
+    margin-right: 20px;
+    background-color: red;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    display: flex;
+    cursor: pointer;
+    color: #ffffff;
+    margin-top: 12px;
+}
+
+.phone-number-1:hover {
+    transform: scale(1.03);
+}
+
+.phone-number-2 {
+    margin-right: 20px;
+    margin-top: 12px;
+    background-color: blue;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.phone-number-2:hover {
+    transform: scale(1.03);
+}
+
+.heart-icon,
+.cart-icon,
+.user-icon {
+    font-size: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+    color: #000000;
+}
+
+.heart-icon:hover {
+    color: #f70000;
+}
+
+.cart-icon:hover {
+    color: #f70000;
+}
+
+.user-icon:hover{
+    color: #f70000;
+}
+
+.menu-active {
+    border-bottom: 2px solid #E6BD65;
+}
+
+a {
+    text-decoration: none;
+    color: #db9600;
+}
+
+.ant-modal-content {
+    width: 600px;
+    height: auto;
+}
+
+.modal-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #E6BD65;
+}
+
+.form-login {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-login label {
+    font-size: 14px;
+    margin-bottom: 2px;
+    color: #E6BD65;
+}
+
+.form-login input {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.btn-login {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.btn-sub-login {
+    margin-top: 20px;
+    width: 80%;
+}
+
+
+.btn-forgot-password:hover {
+    cursor: pointer;
+    color: #E6BD65;
+}
+
+.btn-create-account:hover{
+    cursor: pointer;
+    color: #E6BD65;
+}
+
+.modal-forgot-password {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-nav-menu {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    align-items: center;
+}
+
+.logo-website {
+    width: 130px;
+    height: auto;
+    margin-right: 30px;
+}
+
+.forgot-password-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6BD65;
+}
+
+.email-register {
+    color: #E6BD65;
+    margin-bottom: 5px;
+}
+
+.form-register input {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.form-register {
+    width: 80%;
+}
+
+.modal-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-register .btn-sub-login {
+    margin-left: 290px;
+}

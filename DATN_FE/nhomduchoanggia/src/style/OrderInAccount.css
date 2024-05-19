@@ -1,0 +1,47 @@
+.order-in-account-content {
+    padding: 30px;
+}
+
+.item-order {
+    display: flex;
+    width: 100%;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.item-order-left {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-order-left img {
+    width: 60%;
+    height: auto;
+}
+
+.item-order-right {
+    width: 70%;
+}
+
+.order-item-name {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.order-item-address {
+    font-size: 17px;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+
+.order-item-info {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+}

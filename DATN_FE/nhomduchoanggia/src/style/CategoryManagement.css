@@ -1,0 +1,14 @@
+.management-category-container {
+    padding: 20px;
+}
+
+.management-category-title {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.btn-add-category {
+    margin-bottom: 10px;
+}

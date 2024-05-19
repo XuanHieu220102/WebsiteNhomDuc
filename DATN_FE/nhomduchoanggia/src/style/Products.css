@@ -1,0 +1,251 @@
+.show-banner-sub {
+    width: 100%;
+    height: 250px;
+}
+
+.img-banner-sub {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.shop-page-titlle {
+    height: 90px;
+    background-color: #E6BD65;
+    color: #f1f1f1;
+}
+
+.page-title-inner {
+    width: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-category {
+    font-size: 24px;
+    margin-bottom: 3px;
+}
+
+.redirect-to-home {
+    cursor: pointer;
+    color: #f0f0f0;
+}
+
+.redirect-to-home:hover {
+    color: #00f7ff;
+}
+
+.redirect-to-category {
+    cursor: pointer;
+    color: #f0f0f0;
+}
+
+.redirect-to-category:hover {
+    color: #00f7ff;
+}
+
+.arrow-right-icon {
+    font-size: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.is-small {
+    display: flex;
+    align-items: center;
+}
+
+.image-title {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-title-footer {
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-elementor {
+    width: 255px;
+    height: 70px;
+}
+
+.category-page {
+    height: 1400px;
+    width: 100%;
+    margin-top: 55px;
+}
+
+.category-page-content {
+    width: 70%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.category-content-title {
+    margin: 10px 0px;
+    color: #cfa03a;
+}
+
+.description-category {
+    font-size: 17px;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #cfa03a;    
+}
+
+.main-left {
+    width: 25%;
+    border: 1px solid black;
+    height: 100%;
+}
+
+.main-right {
+    width: 75%;
+    height: 100%;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: relative;
+}
+
+.list-categories {
+    margin: 15px;
+    display: flex;
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.list-category-title {
+    color: #E6BD65;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.categories {
+    list-style: none;
+}
+
+.category-name {
+    font-size: 22px;
+    color: #E6BD65;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.category-name:hover{
+    color: #cfa03a;
+}
+
+.selling-products {
+    height: 930px;
+    /* border: 1px solid black; */
+    margin: 15px;
+}
+
+.selling-products-title {
+    color: #E6BD65;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;    
+    font-size: 22px;
+}
+
+.pagition-product-category {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.product-detail-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-in-product {
+    text-align: center;
+    color: red;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.rating-product {
+    text-align: center;
+}
+
+.star {
+    font-size: 20px;
+}
+
+.title-no-product {
+    width: 100%;
+    color: red;
+    font-size: 24px;
+    text-align: justify;
+}
+
+.selling-products-items {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.alert-container {
+    position: fixed;
+    top: 30px;
+    left: 40%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-container {
+    width: 45%;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-container input {
+    padding: 10px;
+}
+.search-product-btn {
+   margin-left: 20px;
+    height: 40px;
+    width: 120px; 
+}
+
+.btn-reset-search {
+    margin-left: 20px;
+    height: 40px;
+    width: 120px;
+}
