@@ -1,0 +1,286 @@
+{
+  "label": "Data Grid",
+  "disableAddingRemovingRows": true,
+  "reorder": false,
+  "layoutFixed": true,
+  "enableRowGroups": false,
+  "initEmpty": false,
+  "customClass": "table-custom-header col1-w5 col2-w30",
+  "hideLabel": true,
+  "tableView": true,
+  "defaultValue": [
+    {
+      "stt": "A",
+      "name": "B",
+      "code": "C",
+      "totalSlaughtered": 1,
+      "averageSlaughteredWeight": 2,
+      "soldQuantity": 3,
+      "soldWeight": 4,
+      "revenue": 5,
+      "disabled": true
+    },
+    {
+      "stt": "01",
+      "name": "Lợn",
+      "code": "0145200",
+      "unit": null,
+      "parentCode": null,
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Pig"
+    },
+    {
+      "stt": "02",
+      "name": "    1.1. Lợn thịt",
+      "code": "01452001",
+      "unit": null,
+      "parentCode": "0145200",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Pig"
+    },
+    {
+      "stt": "03",
+      "name": "    1.2. Lợn nái đẻ",
+      "code": "014520021",
+      "unit": null,
+      "parentCode": "0145200",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Pig"
+    },
+    {
+      "stt": "04",
+      "name": "    1.3. Lợn sữa",
+      "code": "0145120",
+      "unit": null,
+      "parentCode": "0145200",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Pig"
+    },
+    {
+      "stt": "05",
+      "name": "Gà",
+      "code": "0146210",
+      "unit": null,
+      "parentCode": null,
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    },
+    {
+      "stt": "06",
+      "name": "    2.1 Gà thịt",
+      "code": "01462101",
+      "unit": null,
+      "parentCode": "0146210",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    },
+    {
+      "stt": "07",
+      "name": "        2.1.1 Gà công nghiệp",
+      "code": "014621021",
+      "unit": null,
+      "parentCode": "01462101",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    },
+    {
+      "stt": "08",
+      "name": "        2.1.2 Gà khác",
+      "code": "01462103",
+      "unit": null,
+      "parentCode": "01462101",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    },
+    {
+      "stt": "09",
+      "name": "    2.2 Gà đẻ thành lý",
+      "code": "01462104",
+      "unit": null,
+      "parentCode": "0146210",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    },
+    {
+      "stt": "10",
+      "name": "Vịt",
+      "code": "0146310",
+      "unit": null,
+      "parentCode": null,
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    },
+    {
+      "stt": "11",
+      "name": "    3.1. Vịt thịt",
+      "code": "01463102",
+      "unit": null,
+      "parentCode": "0146310",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    },
+    {
+      "stt": "12",
+      "name": "    3.2. Vịt đẻ thành lý",
+      "code": "01463103",
+      "unit": null,
+      "parentCode": "0146310",
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    },
+    {
+      "stt": "13",
+      "name": "Ngan thịt",
+      "code": "0146320",
+      "unit": null,
+      "parentCode": null,
+      "codeList": "CL_LST_PRODUCT",
+      "type": "Poultry"
+    }
+  ],
+  "validate": {
+    "custom": "// Validation tổng thể cho bảng\nvar valid = true;\nvar errors = [];\n\n// Hàm kiểm tra tổng sản phẩm\nfunction validateTotalProducts(data) {\n  // Lợn: 01=02+03+04\n  var lonTotal = data.find(item => item.code === '0145200');\n  var lonThit = data.find(item => item.code === '01452001');\n  var lonNaiDe = data.find(item => item.code === '014520021');\n  var lonSua = data.find(item => item.code === '0145120');\n  \n  if (lonTotal && (lonThit || lonNaiDe || lonSua)) {\n    var calculatedTotal = (parseFloat(lonThit?.totalSlaughtered || 0) + \n                          parseFloat(lonNaiDe?.totalSlaughtered || 0) + \n                          parseFloat(lonSua?.totalSlaughtered || 0));\n    var actualTotal = parseFloat(lonTotal.totalSlaughtered || 0);\n    \n    if (Math.abs(actualTotal - calculatedTotal) > 0.01 && actualTotal > 0) {\n      errors.push('Tổng sản phẩm Lợn đang [lớn hơn/nhỏ hơn] các giá trị con!');\n    }\n  }\n  \n  // Gà: 05=06+09\n  var gaTotal = data.find(item => item.code === '0146210');\n  var gaThit = data.find(item => item.code === '01462101');\n  var gaDeThanhLy = data.find(item => item.code === '01462104');\n  \n  if (gaTotal && (gaThit || gaDeThanhLy)) {\n    var calculatedGaTotal = (parseFloat(gaThit?.totalSlaughtered || 0) + \n                            parseFloat(gaDeThanhLy?.totalSlaughtered || 0));\n    var actualGaTotal = parseFloat(gaTotal.totalSlaughtered || 0);\n    \n    if (Math.abs(actualGaTotal - calculatedGaTotal) > 0.01 && actualGaTotal > 0) {\n      errors.push('Tổng sản phẩm Gà đang [lớn hơn/nhỏ hơn] các giá trị con!');\n    }\n  }\n  \n  // Gà thịt: 06=07+08\n  var gaCongNghiep = data.find(item => item.code === '014621021');\n  var gaKhac = data.find(item => item.code === '01462103');\n  \n  if (gaThit && (gaCongNghiep || gaKhac)) {\n    var calculatedGaThitTotal = (parseFloat(gaCongNghiep?.totalSlaughtered || 0) + \n                                parseFloat(gaKhac?.totalSlaughtered || 0));\n    var actualGaThitTotal = parseFloat(gaThit.totalSlaughtered || 0);\n    \n    if (Math.abs(actualGaThitTotal - calculatedGaThitTotal) > 0.01 && actualGaThitTotal > 0) {\n      errors.push('Tổng sản phẩm Gà thịt đang [lớn hơn/nhỏ hơn] các giá trị con!');\n    }\n  }\n  \n  // Vịt: 10=11+12\n  var vitTotal = data.find(item => item.code === '0146310');\n  var vitThit = data.find(item => item.code === '01463102');\n  var vitDeThanhLy = data.find(item => item.code === '01463103');\n  \n  if (vitTotal && (vitThit || vitDeThanhLy)) {\n    var calculatedVitTotal = (parseFloat(vitThit?.totalSlaughtered || 0) + \n                             parseFloat(vitDeThanhLy?.totalSlaughtered || 0));\n    var actualVitTotal = parseFloat(vitTotal.totalSlaughtered || 0);\n    \n    if (Math.abs(actualVitTotal - calculatedVitTotal) > 0.01 && actualVitTotal > 0) {\n      errors.push('Tổng sản phẩm Vịt đang [lớn hơn/nhỏ hơn] các giá trị con!');\n    }\n  }\n}\n\n// Kiểm tra ngưỡng cảnh báo 1 triệu con\nfunction checkMillionThreshold(data) {\n  var totalProducts = ['0145200', '0146210', '0146310', '0146320'];\n  totalProducts.forEach(code => {\n    var item = data.find(i => i.code === code);\n    if (item && parseFloat(item.totalSlaughtered || 0) >= 1000000) {\n      errors.push(`Tổng sản phẩm ${item.name} đang lớn hơn/bằng [ngưỡng cảnh báo]!`);\n    }\n  });\n}\n\nif (input && Array.isArray(input)) {\n  validateTotalProducts(input);\n  checkMillionThreshold(input);\n}\n\nif (errors.length > 0) {\n  return errors.join('\\n');\n}\n\nreturn valid;"
+  },
+  "validateWhenHidden": false,
+  "key": "bangSanPhamXuatChuong",
+  "customConditional": "if(row.disable) {\n  component.disabled = true\n}",
+  "logic": [
+    {
+      "name": "FilterGridSPVNByLinhVuc",
+      "trigger": {
+        "type": "javascript",
+        "javascript": "!!data.linhVucHoatDong"
+      },
+      "actions": [
+        {
+          "name": "FilterGridSPVNByLinhVuc",
+          "type": "customAction",
+          "customAction": "// Nếu chưa chọn lĩnh vực thì thoát\r\nif (!data.linhVucHoatDong) return;\r\n\r\nvar grid = instance.root.getComponent('bangSanPhamXuatChuong');\r\nif (!grid) return;\r\n\r\nvar originalDefaultValue = grid.component.defaultValue || [];\r\nvar linhVuc = data.linhVucHoatDong;\r\nvar currentData = data.bangSanPhamXuatChuong || [];\r\n\r\n// --- Tách dòng mẫu và dữ liệu thực tế ---\r\nvar templateRow = originalDefaultValue[0]; // luôn giữ dòng đầu tiên\r\nvar dataToFilter = originalDefaultValue.slice(1); // bỏ dòng đầu tiên\r\n\r\n// Map dữ liệu nhập để merge lại\r\nvar existingDataMap = {};\r\ncurrentData.forEach(function(item) {\r\n  var key = item.code || ('stt' + item.stt + (item.name || '').substring(0, 10));\r\n  existingDataMap[key] = item;\r\n});\r\n\r\n// --- Filter theo lĩnh vực dựa trên type ---\r\nvar filtered = [];\r\nif (linhVuc === 'nuoiLon') {\r\n  filtered = dataToFilter.filter(item => item.type === 'Pig');\r\n} else if (linhVuc === 'nuoiGiaCam') {\r\n  filtered = dataToFilter.filter(item => item.type === 'Poultry');\r\n} else if (linhVuc === 'nuoiHonHop') {\r\n  filtered = dataToFilter;\r\n}\r\n\r\n// --- Merge dữ liệu nhập + format lại STT ---\r\nvar mergedData = filtered.map(function(row, index) {\r\n  var key = row.code || ('stt' + row.stt + (row.name || '').substring(0, 10));\r\n  var existing = existingDataMap[key] || {};\r\n  \r\n  // FIX: Đảm bảo giữ lại parentCode từ dữ liệu gốc\r\n  return Object.assign({}, row, existing, {\r\n    stt: (index + 1).toString().padStart(2, '0'), // 01, 02, 03...\r\n    // Đảm bảo các thuộc tính cấu trúc không bị ghi đè\r\n    parentCode: row.parentCode,\r\n    codeList: row.codeList,\r\n    type: row.type,\r\n    name: row.name,\r\n    code: row.code\r\n  });\r\n});\r\n\r\n// --- Ghép lại với dòng mẫu ---\r\nvar finalData = [templateRow].concat(mergedData);\r\n\r\n// Cập nhật grid\r\ngrid.setValue(finalData);"
+        }
+      ]
+    }
+  ],
+  "type": "datagrid",
+  "input": true,
+  "defaultOpen": false,
+  "components": [
+    {
+      "label": "STT",
+      "key": "stt",
+      "type": "textfield",
+      "input": true,
+      "disabled": true,
+      "tableView": true
+    },
+    {
+      "label": "Tên chỉ tiêu",
+      "applyMaskOn": "change",
+      "customClass": "bold-text",
+      "disabled": true,
+      "tableView": true,
+      "validateWhenHidden": false,
+      "key": "name",
+      "customConditional": "// Chỉ in đậm các dòng cấp cao nhất (không có parentCode)\n// và các dòng có parentCode trỏ đến dòng cấp cao nhất\nvar isTopLevel = !row.parentCode || row.parentCode === null;\nvar isDirectChild = false;\n\nif (!isTopLevel && row.parentCode) {\n  // Kiểm tra xem parentCode có phải là dòng cấp cao nhất không\n  var parentRow = data.bangSanPhamXuatChuong.find(function(item) {\n    return item.code === row.parentCode;\n  });\n  isDirectChild = parentRow && (!parentRow.parentCode || parentRow.parentCode === null);\n}\n\nif (isTopLevel) {\n  component.customClass = 'bold-text';\n} else {\n  component.customClass = '';\n}",
+      "type": "textfield",
+      "input": true
+    },
+    {
+      "label": "Mã sản phẩm",
+      "key": "code",
+      "type": "textfield",
+      "input": true,
+      "disabled": true,
+      "tableView": true
+    },
+    {
+      "label": "Số lượng xuất chuồng (Con)",
+      "placeholder": "Nhập",
+      "applyMaskOn": "change",
+      "mask": false,
+      "tableView": true,
+      "delimiter": false,
+      "requireDecimal": false,
+      "inputFormat": "plain",
+      "truncateMultipleSpaces": false,
+      "validate": {
+        "custom": "if (row.disabled) return true;\r\nif (!input || input === '' || input === 0) return true;\r\n// Hàm chuẩn hóa tên sản phẩm\r\nfunction cleanName(name) {\r\n  if (!name) return '';\r\n  return name\r\n    .replace(/^[0-9\\.\\)\\s]+/, '')      // bỏ tiền tố số thứ tự\r\n    .replace(/[^a-zA-ZÀ-ỹ\\s]/g, '')    // bỏ ký tự đặc biệt\r\n    .replace(/\\s+/g, ' ')              // chuẩn hóa khoảng trắng\r\n    .trim();\r\n}\r\n\r\nvar qty = parseFloat(input);\r\nvar displayName = cleanName(row.name);\r\n\r\nif (isNaN(qty)) {\r\n  var title = `Vui lòng nhập số hợp lệ cho ${displayName}`;\r\n  if (!row._warn_invalid_qty) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'totalSlaughtered', value: input, title }, '*');\r\n    row._warn_invalid_qty = true;\r\n  }\r\n  return false;\r\n}\r\n\r\n// Ngưỡng cảnh báo 1 triệu\r\nvar totalCodes = ['0145200','0146210','0146310','0146320'];\nif (totalCodes.includes(row.code) && qty >= 1000000) {\r\n  var title = `Tổng sản phẩm ${displayName} đang lớn hơn/bằng ngưỡng cảnh báo (1 triệu con)!`;\r\n  if (!row._warn_million) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'totalSlaughtered', value: input, title }, '*');\r\n    row._warn_million = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nreturn true;\r\n"
+      },
+      "validateWhenHidden": false,
+      "key": "totalSlaughtered",
+      "type": "number",
+      "input": true
+    },
+    {
+      "label": "Trọng lượng xuất chuồng (Kg)",
+      "placeholder": "Nhập",
+      "applyMaskOn": "change",
+      "mask": false,
+      "tableView": true,
+      "delimiter": false,
+      "requireDecimal": false,
+      "inputFormat": "plain",
+      "truncateMultipleSpaces": false,
+      "validate": {
+        "custom": "if (row.disabled) return true;\r\nvar qty = parseFloat(row.totalSlaughtered || 0);\r\n// Hàm chuẩn hóa tên sản phẩm\r\nfunction cleanName(name) {\r\n  if (!name) return '';\r\n  return name\r\n    .replace(/^[0-9\\.\\)\\s]+/, '')      // bỏ tiền tố số thứ tự\r\n    .replace(/[^a-zA-ZÀ-ỹ\\s]/g, '')    // bỏ ký tự đặc biệt\r\n    .replace(/\\s+/g, ' ')              // chuẩn hóa khoảng trắng\r\n    .trim();\r\n}\r\n\r\nvar displayName = cleanName(row.name);\r\n\r\nif (input === null || input === undefined || input === '') return true;\r\n\r\nvar weight = parseFloat(input);\r\n\r\nif (weight === 0 && qty > 0) {\r\n  var title = `Số lượng ${displayName} (cột 1) > 0, nhưng trọng lượng xuất chuồng (cột 2) = 0`;\r\n  if (!row._warn_weight_zero) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'averageSlaughteredWeight', value: input, title }, '*');\r\n    row._warn_weight_zero = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nif (isNaN(weight)) {\r\n  var title = `Vui lòng nhập số hợp lệ cho trọng lượng ${displayName}`;\r\n  if (!row._warn_weight_invalid) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'averageSlaughteredWeight', value: input, title }, '*');\r\n    row._warn_weight_invalid = true;\r\n  }\r\n  return false;\r\n}\r\nif (qty === 0) return true;\r\n\r\n// Ngưỡng\r\nvar avg = weight / qty;\r\nvar thresholds = {\r\n  'lonthit': {min:10, max:350, warnMin:20, warnMax:150},\r\n  'lonnaide': {min:10, max:600, warnMin:20, warnMax:400},\r\n  'lonsua': {min:3, max:60, warnMin:5, warnMax:40},\r\n  'gacongnghiep': {min:1, max:7, warnMin:1, warnMax:7},\r\n  'gakhac': {min:1, max:7, warnMin:1, warnMax:7},\r\n  'gadethanhly': {min:1, max:7, warnMin:1, warnMax:7},\r\n  'vitthit': {min:1, max:7, warnMin:1, warnMax:7},\r\n  'vitdethanhly': {min:1, max:7, warnMin:1, warnMax:7},\r\n  'nganthit': {min:1, max:7, warnMin:1, warnMax:7}\r\n};\r\nvar t = thresholds[row.type];\r\nif (!t) return true;\r\n\r\nif (avg < t.min || avg > t.max) {\r\n  var title = `Trọng lượng TB ${displayName} (${avg.toFixed(2)} kg) ngoài khoảng ${t.min}-${t.max}`;\r\n  if (!row._warn_weight_out) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'averageSlaughteredWeight', value: input, title }, '*');\r\n    row._warn_weight_out = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nif (avg < t.warnMin || avg > t.warnMax) {\r\n  var title = `Trọng lượng TB ${displayName} ${avg < t.warnMin ? 'nhỏ hơn' : 'lớn hơn'} ngưỡng cảnh báo (${t.warnMin}-${t.warnMax})`;\r\n  if (!row._warn_weight_warn) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'averageSlaughteredWeight', value: input, title }, '*');\r\n    row._warn_weight_warn = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nreturn true;\r\n"
+      },
+      "validateWhenHidden": false,
+      "key": "averageSlaughteredWeight",
+      "type": "number",
+      "input": true
+    },
+    {
+      "label": "Số lượng bán ra (Con)",
+      "placeholder": "Nhập",
+      "applyMaskOn": "change",
+      "mask": false,
+      "tableView": true,
+      "delimiter": false,
+      "requireDecimal": false,
+      "inputFormat": "plain",
+      "truncateMultipleSpaces": false,
+      "validate": {
+        "custom": "if (row.disabled) return true;\r\nif (!input || input === '' || input === 0) return true;\r\n// Hàm chuẩn hóa tên sản phẩm\r\nfunction cleanName(name) {\r\n  if (!name) return '';\r\n  return name\r\n    .replace(/^[0-9\\.\\)\\s]+/, '')      // bỏ tiền tố số thứ tự\r\n    .replace(/[^a-zA-ZÀ-ỹ\\s]/g, '')    // bỏ ký tự đặc biệt\r\n    .replace(/\\s+/g, ' ')              // chuẩn hóa khoảng trắng\r\n    .trim();\r\n}\r\n\r\nvar sold = parseFloat(input);\r\nvar total = parseFloat(row.totalSlaughtered || 0);\r\nvar displayName = cleanName(row.name);\r\n\r\nif (isNaN(sold)) {\r\n  var title = `Vui lòng nhập số hợp lệ cho số lượng bán ra ${displayName}`;\r\n  if (!row._warn_sold_invalid) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'soldQuantity', value: input, title }, '*');\r\n    row._warn_sold_invalid = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nif (sold > total) {\r\n  var title = `Số lượng ${displayName} bán ra (cột 3) > số lượng xuất chuồng (cột 1)`;\r\n  if (!row._warn_sold_exceed) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'soldQuantity', value: input, title }, '*');\r\n    row._warn_sold_exceed = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nreturn true;\r\n"
+      },
+      "validateWhenHidden": false,
+      "key": "soldQuantity",
+      "type": "number",
+      "input": true
+    },
+    {
+      "label": "Trọng lượng bán ra (Kg)",
+      "placeholder": "Nhập",
+      "applyMaskOn": "change",
+      "mask": false,
+      "tableView": true,
+      "delimiter": false,
+      "requireDecimal": false,
+      "inputFormat": "plain",
+      "truncateMultipleSpaces": false,
+      "validate": {
+        "custom": "if (row.disabled) return true;\r\nvar soldQty = parseFloat(row.soldQuantity || 0);\r\nvar totalWeight = parseFloat(row.averageSlaughteredWeight || 0);\r\n// Hàm chuẩn hóa tên sản phẩm\r\nfunction cleanName(name) {\r\n  if (!name) return '';\r\n  return name\r\n    .replace(/^[0-9\\.\\)\\s]+/, '')      // bỏ tiền tố số thứ tự\r\n    .replace(/[^a-zA-ZÀ-ỹ\\s]/g, '')    // bỏ ký tự đặc biệt\r\n    .replace(/\\s+/g, ' ')              // chuẩn hóa khoảng trắng\r\n    .trim();\r\n}\r\n\r\nvar displayName = cleanName(row.name);\r\n\r\nif (input === null || input === undefined || input === '') return true;\r\n\r\nvar soldW = parseFloat(input);\r\n\r\nif (soldW === 0 && soldQty > 0) {\r\n  var title = `Số lượng ${displayName} bán ra (cột 3) > 0, nhưng trọng lượng bán ra (cột 4) = 0`;\r\n  if (!row._warn_soldW_zero) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'soldWeight', value: input, title }, '*');\r\n    row._warn_soldW_zero = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nif (isNaN(soldW)) {\r\n  var title = `Vui lòng nhập số hợp lệ cho trọng lượng bán ra ${displayName}`;\r\n  if (!row._warn_soldW_invalid) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'soldWeight', value: input, title }, '*');\r\n    row._warn_soldW_invalid = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nif (soldW > totalWeight) {\r\n  var title = `Trọng lượng ${displayName} bán ra (cột 4) > trọng lượng xuất chuồng (cột 2)`;\r\n  if (!row._warn_soldW_exceed) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'soldWeight', value: input, title }, '*');\r\n    row._warn_soldW_exceed = true;\r\n  }\r\n  return false;\r\n}\r\nif (soldQty === 0) return true;\r\n\r\n// Ngưỡng\r\nvar avgSold = soldW / soldQty;\r\nvar t = thresholds[row.type];\r\nif (!t) return true;\r\n\r\nif (avgSold < t.min || avgSold > t.max) {\r\n  var title = `Trọng lượng TB ${displayName} bán ra (${avgSold.toFixed(2)} kg) ngoài khoảng ${t.min}-${t.max}`;\r\n  if (!row._warn_soldW_out) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'soldWeight', value: input, title }, '*');\r\n    row._warn_soldW_out = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nif (avgSold < t.warnMin || avgSold > t.warnMax) {\r\n  var title = `Trọng lượng TB ${displayName} bán ra ${avgSold < t.warnMin ? 'nhỏ hơn' : 'lớn hơn'} ngưỡng cảnh báo (${t.warnMin}-${t.warnMax})`;\r\n  if (!row._warn_soldW_warn) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'soldWeight', value: input, title }, '*');\r\n    row._warn_soldW_warn = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nreturn true;\r\n"
+      },
+      "validateWhenHidden": false,
+      "key": "soldWeight",
+      "type": "number",
+      "input": true
+    },
+    {
+      "label": "Doanh thu (Nghìn đồng)",
+      "placeholder": "Nhập",
+      "applyMaskOn": "change",
+      "mask": false,
+      "tableView": true,
+      "delimiter": false,
+      "requireDecimal": false,
+      "inputFormat": "plain",
+      "truncateMultipleSpaces": false,
+      "validate": {
+        "custom": "if (row.disabled) return true;\r\nvar soldW = parseFloat(row.soldWeight || 0);\r\n// Hàm chuẩn hóa tên sản phẩm\r\nfunction cleanName(name) {\r\n  if (!name) return '';\r\n  return name\r\n    .replace(/^[0-9\\.\\)\\s]+/, '')      // bỏ tiền tố số thứ tự\r\n    .replace(/[^a-zA-ZÀ-ỹ\\s]/g, '')    // bỏ ký tự đặc biệt\r\n    .replace(/\\s+/g, ' ')              // chuẩn hóa khoảng trắng\r\n    .trim();\r\n}\r\n\r\nvar displayName = cleanName(row.name);\r\n\r\nif (input === null || input === undefined || input === '') return true;\r\n\r\nvar rev = parseFloat(input);\r\n\r\nif (rev === 0 && soldW > 0) {\r\n  var title = `Trọng lượng ${displayName} bán ra (cột 4) > 0, nhưng doanh thu (cột 5) = 0`;\r\n  if (!row._warn_rev_zero) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'revenue', value: input, title }, '*');\r\n    row._warn_rev_zero = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nif (isNaN(rev)) {\r\n  var title = `Vui lòng nhập số hợp lệ cho doanh thu ${displayName}`;\r\n  if (!row._warn_rev_invalid) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'revenue', value: input, title }, '*');\r\n    row._warn_rev_invalid = true;\r\n  }\r\n  return false;\r\n}\r\nif (soldW === 0) return true;\r\n\r\n// TB giá bán\r\nvar avgPrice = rev / soldW;\r\nvar priceRanges = {\r\n  'lonthit': {min:30, max:150},\r\n  'gacongnghiep': {min:20, max:200},\r\n  'gakhac': {min:20, max:200},\r\n  'gadethanhly': {min:20, max:200},\r\n  'vitthit': {min:20, max:200},\r\n  'vitdethanhly': {min:20, max:200},\r\n  'nganthit': {min:20, max:200}\r\n};\r\nvar pr = priceRanges[row.type];\r\nif (pr && (avgPrice < pr.min || avgPrice > pr.max)) {\r\n  var title = `Giá bán TB ${displayName} (${avgPrice.toFixed(2)} nghìn/kg) ngoài khoảng ${pr.min}-${pr.max}`;\r\n  if (!row._warn_rev_out) {\r\n    window.postMessage({ type: 'CANHBAO', fieldKey: 'revenue', value: input, title }, '*');\r\n    row._warn_rev_out = true;\r\n  }\r\n  return false;\r\n}\r\n\r\nif (row.type === 'lonsua') {\r\n  var formData = data.bangSanPhamXuatChuong || [];\r\n  var nai = formData.find(i => i.type === 'lonnaide');\r\n  var naiQty = parseFloat(nai.totalSlaughtered || 0);\r\n  var suaQty = parseFloat(row.totalSlaughtered || 0);\r\n  if (suaQty > 0 && naiQty === 0) {\r\n    var title = 'Có lợn sữa xuất chuồng nhưng không có lợn nái đẻ!';\r\n    if (!row._warn_rev_special) {\r\n      window.postMessage({ type: 'CANHBAO', fieldKey: 'revenue', value: input, title }, '*');\r\n      row._warn_rev_special = true;\r\n    }\r\n    return false;\r\n  }\r\n}\r\n\r\nreturn true;\r\n"
+      },
+      "validateWhenHidden": false,
+      "key": "revenue",
+      "type": "number",
+      "input": true
+    }
+  ]
+}
